@@ -35,7 +35,8 @@ while go:
             info_dict["name"].append(item[1]['name'])
             info_dict["price"].append(item[1]['price'])
             info_dict["amount"].append(item[1]['amount'])
-            info_dict["measure"].append(item[1]['measure'])
+            if item[1]['measure'] not in info_dict["measure"]:  #  в задании 6 надо было убрать дубликаты единиц измерения
+                info_dict["measure"].append(item[1]['measure'])
         # print(info_dict)   - вывести в одну строку
         for key in info_dict:
             print(f"{key}: {info_dict[key]}")
